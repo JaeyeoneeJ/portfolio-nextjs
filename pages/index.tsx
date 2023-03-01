@@ -1,8 +1,7 @@
 import TypingText from "@/components/TypingText";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
-const Container = styled.div`
+const Wrapper = styled.div`
   height: calc(100vh - 260px);
   font-size: 30px;
   font-weight: 100;
@@ -23,9 +22,7 @@ export default function Home() {
   ];
   return (
     <Wrapper>
-      <Container>
-        <TypingText text={textArr} fontSize="40px" />
-      </Container>
+      <TypingText text={textArr} fontSize="40px" />
     </Wrapper>
   );
 }
