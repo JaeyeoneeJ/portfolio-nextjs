@@ -79,15 +79,13 @@ const TitleArea = styled.div`
 const LinkArea = styled.a<{ hoverColor: string }>`
   cursor: pointer;
   svg {
-    color: white;
     transition: all 0.3s;
   }
-  &:first-child:hover {
-    transition: all 0.3s;
-    transform: rotateZ(-15deg);
+  &:first-child:hover svg {
+    transform: rotateZ(-15deg) translateY(-5px);
   }
   &:hover svg {
-    color: ${(props) => props.hoverColor};
+    fill: ${(props) => props.hoverColor};
     scale: 1.1;
     transform: translateY(-5px);
   }
@@ -146,11 +144,11 @@ const Header = () => {
             }}
           >
             <LinkArea hoverColor="#0bb9f8">
-              <AiFillMail size={30} />
+              <AiFillMail size={30} color="white" />
             </LinkArea>
           </CopyToClipboard>
           <LinkArea hoverColor="black" href="https://github.com/jaeyeoneej">
-            <FaGithub size={30} />
+            <FaGithub size={30} color="white" />
           </LinkArea>
         </FlexBox>
       </Wrapper>
