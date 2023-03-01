@@ -4,6 +4,9 @@ const API_KEY = process.env.API_KEY;
 
 const nextConfig = {
   reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
   async redirects() {
     return [
       {
