@@ -115,29 +115,25 @@ const Header = () => {
             <MenuItem>
               <Link href="/">
                 Home
-                {/* {homeMatch && <Circle layoutId="circle" />} */}
-                {<Circle layoutId="circle" />}
+                {router.asPath === "/" && <Circle layoutId="circle" />}
               </Link>
             </MenuItem>
             <MenuItem>
               <Link href="/project">
                 Project
-                {/* {projectMatch && <Circle layoutId="circle" />} */}
-                {<Circle layoutId="circle" />}
+                {router.asPath === "/project" && <Circle layoutId="circle" />}
               </Link>
             </MenuItem>
             <MenuItem>
               <Link href="/timeline">
                 Timeline
-                {/* {timelineMatch && <Circle layoutId="circle" />} */}
-                {<Circle layoutId="circle" />}
+                {router.asPath === "/timeline" && <Circle layoutId="circle" />}
               </Link>
             </MenuItem>
             <MenuItem>
               <Link href="/about_me">
                 About me
-                {/* {aboutMeMatch && <Circle layoutId="circle" />} */}
-                {<Circle layoutId="circle" />}
+                {router.asPath === "/about_me" && <Circle layoutId="circle" />}
               </Link>
             </MenuItem>
           </MenuArea>
