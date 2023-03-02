@@ -93,11 +93,6 @@ const LinkArea = styled.a<{ hoverColor: string }>`
 
 const Header = () => {
   const router = useRouter();
-  console.log(router);
-  // const homeMatch = useRouter("/");
-  // const projectMatch = useMatch("/project");
-  // const timelineMatch = useMatch("/timeline");
-  // const aboutMeMatch = useMatch("/about_me");
   const emailAddress = "5ikve@naver.com";
   return (
     <Position>
