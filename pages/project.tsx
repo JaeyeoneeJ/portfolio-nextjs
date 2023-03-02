@@ -1,7 +1,8 @@
-import { useSetRecoilState } from "recoil";
+import ProgressiveImg from "@/components/ProgressiveImg";
+import ProjectModal from "@/components/ProjectModal";
+import { IProjectData, projectData, projectState } from "@/recoil/atoms";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-// import { IProjectData, projectData, projectState } from "../atoms";
-// import ProgressiveImg from "../Components/ProgressiveImg";
 
 const Ctn = styled.div`
   position: relative;
@@ -30,7 +31,6 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  /* background-color: green; */
   border-radius: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.7);
@@ -248,36 +248,36 @@ const projects = [
 ];
 
 export default function Project() {
-  // const setIsClickedProject = useSetRecoilState(projectState);
-  // const setIsprojectData = useSetRecoilState(projectData);
-  // const onProjectView = (file: IProjectData) => {
-  //   setIsClickedProject(true);
-  //   setIsprojectData(file);
-  // };
+  const [isClickedProject, setIsClickedProject] = useRecoilState(projectState);
+  const setIsprojectData = useSetRecoilState(projectData);
+  const onProjectView = (file: IProjectData) => {
+    setIsClickedProject(true);
+    setIsprojectData(file);
+  };
   return (
-    <Ctn>
-      <Wrapper>
-        {projects.map((project, index) => (
-          <Card
-            key={index}
-            // onClick={() => onProjectView(project)}
-          >
-            <ImgBox>
-              <Filter className="filter">
-                {/* <ProgressiveImg
-                  maxWidth="100%"
-                  src={`img/projects/${project.src}.png`}
-                  placeholderSrc={`img/projects/tiny_${project.src}.png`}
-                /> */}
-              </Filter>
-            </ImgBox>
-            <Textarea>
-              <Text fontSize="20px">{project.title}</Text>
-              <Text>{project.description}</Text>
-            </Textarea>
-          </Card>
-        ))}
-      </Wrapper>
-    </Ctn>
+    <>
+      {isClickedProject && <ProjectModal />}
+      <Ctn>
+        <Wrapper>
+          {projects.map((project, index) => (
+            <Card key={index} onClick={() => onProjectView(project)}>
+              <ImgBox>
+                <Filter className="filter">
+                  <ProgressiveImg
+                    maxWidth="100%"
+                    src={`img/projects/${project.src}.png`}
+                    placeholderSrc={`img/projects/tiny_${project.src}.png`}
+                  />
+                </Filter>
+              </ImgBox>
+              <Textarea>
+                <Text fontSize="20px">{project.title}</Text>
+                <Text>{project.description}</Text>
+              </Textarea>
+            </Card>
+          ))}
+        </Wrapper>
+      </Ctn>
+    </>
   );
 }
