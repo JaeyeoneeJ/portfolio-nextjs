@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import TypingText from "@/components/TypingText";
 import styled from "styled-components";
 
@@ -21,8 +22,11 @@ export default function Home() {
     "Grad to meet you. :)",
   ];
   return (
-    <Wrapper>
-      <TypingText text={textArr} fontSize="40px" />
-    </Wrapper>
+    <>
+      <Seo />
+      <Wrapper>
+        <TypingText text={textArr} fontSize="40px" />
+      </Wrapper>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import ImgModal from "@/components/ImgModal";
+import Seo from "@/components/Seo";
 import TimelineContents from "@/components/TimelineContents";
 import { imgState } from "@/recoil/atoms";
 import React, { useState } from "react";
@@ -53,6 +54,7 @@ export default function Timeline() {
 
   return (
     <>
+      <Seo title="timeline" />
       {isClickedImg && <ImgModal />}
       <Wrapper>
         <MenuBar>

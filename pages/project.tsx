@@ -1,5 +1,6 @@
 import ProgressiveImg from "@/components/ProgressiveImg";
 import ProjectModal from "@/components/ProjectModal";
+import Seo from "@/components/Seo";
 import { IProjectData, projectData, projectState } from "@/recoil/atoms";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
@@ -256,6 +257,7 @@ export default function Project() {
   };
   return (
     <>
+      <Seo title="project" />
       {isClickedProject && <ProjectModal />}
       <Ctn>
         <Wrapper>
