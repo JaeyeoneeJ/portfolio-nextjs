@@ -93,6 +93,7 @@ const projects = [
       "프론트엔드 개발자로서의 첫 포트폴리오로 React로 제작 후, NextJS로 SSR 웹 개발과 SEO를 중점으로 개발 및 변경한 웹 앱입니다.",
     experience: [
       "Next.js를 사용하여 SSR 웹 개발과 SEO 중점으로 변경",
+      "CSS가 Head에 주입되어 SSR될 때 작동하도록 _document.tsx 및 next.config.js 셋팅",
       "라이브러리 없이 React Hook을 활용하여 타이핑 모션(타이핑 및 삭제)으로 메인 페이지 구현",
       "외부 라이브러리 없이 리액트에서 이미지를 점진적으로 로드(프로그래시브 이미지)하는 기능 구현",
       "framer-motion을 사용하여 animation 구현",
