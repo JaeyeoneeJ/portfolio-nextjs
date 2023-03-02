@@ -100,7 +100,7 @@ const Header = () => {
         <FlexBox gap="80px">
           <Link href="/">
             <TitleArea>
-              <span>jaeyeonee's</span>
+              <span>jaeyeonee&apos;s</span>
               <span>PORTFOLIO</span>
             </TitleArea>
           </Link>
