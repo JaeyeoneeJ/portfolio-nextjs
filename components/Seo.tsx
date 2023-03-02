@@ -6,7 +6,7 @@ interface ITitleProps {
 export default function Seo({ title }: ITitleProps) {
   return (
     <Head>
-      <title>{title && `${title} - `}jaeyeonee's portfolio</title>
+      <title>{title && `${title} - `}jaeyeonee&apos;s portfolio</title>
     </Head>
   );
 }

@@ -33,7 +33,7 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
           <meta property="og:image:width" content="400" />
           <meta property="og:image:height" content="300" />
           <meta property="og:image:alt" content="portfolio's main image" />
-          <title>jaeyeonee's portfolio</title>
+          <title>jaeyeonee&apos;s portfolio</title>
         </Head>
         <Layout>
           <Component {...pageProps} />
