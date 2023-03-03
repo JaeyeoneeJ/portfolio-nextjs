@@ -11,6 +11,10 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <ThemeProvider theme={lightTheme}>
         <Head>
+          <meta
+            name="google-site-verification"
+            content="UYOH_HeYIxhP8p-8Ecnna8ngWeebQeiGgYXXEwFq-Bc"
+          />
           <meta property="og:title" content="jaeyeonee's portfolio" />
           <meta
             property="og:description"
