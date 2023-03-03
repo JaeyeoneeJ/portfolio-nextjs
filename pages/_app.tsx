@@ -15,6 +15,10 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
             name="google-site-verification"
             content="UYOH_HeYIxhP8p-8Ecnna8ngWeebQeiGgYXXEwFq-Bc"
           />
+          <meta
+            name="description"
+            content="jaeyeonee의 웹 포트폴리오입니다. 지금까지 진행한 프로젝트와 저에 대해 설명합니다."
+          />
           <meta property="og:title" content="jaeyeonee's portfolio" />
           <meta
             property="og:description"
