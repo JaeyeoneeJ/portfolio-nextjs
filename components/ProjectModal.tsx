@@ -82,7 +82,7 @@ const GradientBox = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    display: inline-block;
+    display: block;
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0) 80%,

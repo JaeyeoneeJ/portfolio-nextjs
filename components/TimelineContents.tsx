@@ -20,20 +20,22 @@ const Card = styled.div`
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid ${(props) => props.theme.gray.lighter};
-  /* border: 1px solid black; */
   &:last-child {
     border-bottom: none;
   }
 `;
+
 const FlexCol = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
 `;
+
 const FlexRow = styled(FlexCol)`
   flex-direction: row;
   justify-content: space-between;
 `;
+
 const Duration = styled.p`
   width: 150px;
   text-align: center;
@@ -43,6 +45,7 @@ const Duration = styled.p`
   color: tomato;
   height: 20px;
 `;
+
 const Explain = styled.div`
   color: ${(props) => props.theme.black.lighter};
   display: flex;
@@ -50,13 +53,16 @@ const Explain = styled.div`
   gap: 5px;
   padding: 2px 6px;
 `;
+
 const Experience = styled.p`
   font-weight: 600;
 `;
+
 const UnderLine = styled.div`
   display: flex;
   gap: 5px;
 `;
+
 const BorderBoxContent = styled.p<{ color: string }>`
   background-color: ${(props) => props.color};
   width: auto;
@@ -65,6 +71,7 @@ const BorderBoxContent = styled.p<{ color: string }>`
   color: gray;
   height: 20px;
 `;
+
 const Category = styled.div`
   width: 20px;
   height: 20px;
@@ -72,8 +79,8 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  /* background-color: red; */
 `;
+
 const ImgIcon = styled(Category)`
   cursor: pointer;
 `;
@@ -110,6 +117,8 @@ const awards = [
     subject: "공모전 모음 플랫폼 - 콘테스트크루",
     host: "한국디자인진흥원",
     file: {
+      category: "activity",
+      duration: "2017.08 ~ 2017.12",
       src: "activity_contestcrew",
       title: "Contest Crew",
       explain: "대학생 및 취업준비생의 공모전 준비를 위한 웹서비스",
@@ -154,6 +163,8 @@ const awards = [
     subject: "교통량을 반영한 육교 디자인 - Mobius Strip",
     host: "경북 구미시",
     file: {
+      category: "award",
+      duration: "2015.10",
       src: "award_mobiusStrip",
       title: "MOBIUS STRIP",
       explain:
@@ -167,6 +178,8 @@ const awards = [
     subject: "함께 자라는 가구 - O'Tree",
     host: "대한민국어린이디자인대상",
     file: {
+      category: "award",
+      duration: "2015.10",
       src: "award_oTree",
       title: "O'Tree",
       explain:

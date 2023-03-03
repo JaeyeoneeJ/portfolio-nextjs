@@ -51,7 +51,9 @@ export const imgState = atom({
 });
 
 export interface IImgName {
+  category: string;
   src: string;
+  duration: string;
   title: string;
   explain: string;
 }
@@ -59,7 +61,9 @@ export interface IImgName {
 export const imgName = atom<IImgName>({
   key: "imgName",
   default: {
+    category: "",
     src: "",
+    duration: "",
     title: "",
     explain: "",
   },
