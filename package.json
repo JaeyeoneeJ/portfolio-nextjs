@@ -7,7 +7,7 @@
     "build": "rimraf public/robots.txt public/sitemap*.xml & next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap --config sitemap.config.js",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "vercel-deploy": "next build && next export"
   },
   "dependencies": {
