@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
 import { AiFillMail } from "react-icons/ai";
+import { FiMenu } from "react-icons/fi";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import useWindowWidth from "./hooks/useWindowWidth";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Position = styled.div`
   top: 80px;
@@ -34,6 +37,9 @@ const MenuArea = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  @media screen and (max-width: 680px) {
+    display: none;
+  }
 `;
 const MenuItem = styled.button`
   border: none;
@@ -76,7 +82,8 @@ const TitleArea = styled.div`
     }
   }
 `;
-const LinkArea = styled.a<{ hoverColor: string }>`
+
+const LinkItem = styled.a<{ hoverColor: string }>`
   cursor: pointer;
   svg {
     transition: all 0.3s;
@@ -91,13 +98,31 @@ const LinkArea = styled.a<{ hoverColor: string }>`
   }
 `;
 
+const MenuIcon = styled.button`
+  border: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+  :hover svg {
+    transition: stroke 0.3s;
+    stroke: ${(props) => props.theme.pointColor};
+  }
+`;
+
 const Header = () => {
   const router = useRouter();
   const emailAddress = "5ikve@naver.com";
+
+  const [menuState, setMenuState] = useState(false);
+  const menuToggle = () => {
+    setMenuState((prev) => !prev);
+  };
   return (
     <Position>
       <Wrapper>
-        <FlexBox gap="80px">
+        <FlexBox gap={useWindowWidth() >= 880 ? "80px" : "40px"}>
           <Link href="/">
             <TitleArea>
               <span>jaeyeonee&apos;s</span>
@@ -132,19 +157,30 @@ const Header = () => {
           </MenuArea>
         </FlexBox>
         <FlexBox gap="10px">
-          <CopyToClipboard
-            text={emailAddress}
-            onCopy={() => {
-              alert(`메일 주소 ${emailAddress}이 복사되었습니다.`);
-            }}
-          >
-            <LinkArea hoverColor="#0bb9f8">
-              <AiFillMail size={30} color="white" />
-            </LinkArea>
-          </CopyToClipboard>
-          <LinkArea hoverColor="black" href="https://github.com/jaeyeoneej">
-            <FaGithub size={30} color="white" />
-          </LinkArea>
+          {useWindowWidth() >= 680 ? (
+            <>
+              <CopyToClipboard
+                text={emailAddress}
+                onCopy={() => {
+                  alert(`메일 주소 ${emailAddress}이 복사되었습니다.`);
+                }}
+              >
+                <LinkItem hoverColor="#0bb9f8">
+                  <AiFillMail size={30} color="white" />
+                </LinkItem>
+              </CopyToClipboard>
+              <LinkItem hoverColor="black" href="https://github.com/jaeyeoneej">
+                <FaGithub size={30} color="white" />
+              </LinkItem>
+            </>
+          ) : (
+            <>
+              <MenuIcon onClick={menuToggle}>
+                <FiMenu size={30} color="white" />
+              </MenuIcon>
+              {menuState && <HamburgerMenu />}
+            </>
+          )}
         </FlexBox>
       </Wrapper>
     </Position>
