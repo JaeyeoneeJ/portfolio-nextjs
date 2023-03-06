@@ -1,3 +1,4 @@
+import useWindowWidth from "@/components/hooks/useWindowWidth";
 import Seo from "@/components/Seo";
 import TypingTextToTitle from "@/components/TypingTextToTitle";
 import styled from "styled-components";
@@ -26,6 +27,13 @@ const TextArea = styled.div`
 `;
 const Text = styled.p`
   font-size: 18px;
+  transition: font 0.3s;
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 const ImgWrapper = styled.div`
@@ -54,7 +62,7 @@ export default function AboutMe() {
       <Wrapper>
         <TypingTextToTitle
           text="사용자 중심의 디자인을 넘어"
-          fontSize="30px"
+          fontSize={useWindowWidth() > 680 ? "30px" : "22px"}
           color="#265d10"
         />
         <TextArea>

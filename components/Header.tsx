@@ -48,6 +48,7 @@ const MenuItem = styled.button`
   font-weight: 300;
   position: relative;
   top: -5px;
+  transition: font 0.3s ease-in-out;
   @media screen and (max-width: 1180px) {
     font-size: 14px;
   }
@@ -70,6 +71,7 @@ const TitleArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: font 0.3s ease-in-out;
   span:last-child {
     font-size: 30px;
     letter-spacing: 10px;
@@ -79,6 +81,13 @@ const TitleArea = styled.div`
     span:last-child {
       font-size: 20px;
       letter-spacing: 6px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+    span:last-child {
+      font-size: 18px;
+      letter-spacing: 5px;
     }
   }
 `;
@@ -105,8 +114,10 @@ const MenuIcon = styled.button`
   margin: 0;
   background-color: transparent;
   cursor: pointer;
-  :hover svg {
+  svg {
     transition: stroke 0.3s;
+  }
+  :hover svg {
     stroke: ${(props) => props.theme.pointColor};
   }
 `;
@@ -157,7 +168,7 @@ const Header = () => {
           </MenuArea>
         </FlexBox>
         <FlexBox gap="10px">
-          {useWindowWidth() >= 680 ? (
+          {useWindowWidth() > 680 ? (
             <>
               <CopyToClipboard
                 text={emailAddress}
