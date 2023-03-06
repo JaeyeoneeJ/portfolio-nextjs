@@ -6,6 +6,15 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 60px 40px;
+  transition: padding 0.5s ease-in-out;
+  @media screen and (max-width: 880px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media screen and (max-height: 660px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 `;
 const Wrapper = styled.div`
   background-color: white;
@@ -21,9 +30,12 @@ const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  transition: background 5s ease-in-out;
+  transition: background 5s ease-in-out padding 0.5s ease-in-out;
   :hover {
     background-position: center 50%;
+  }
+  @media screen and (max-width: 880px) {
+    padding: 20px;
   }
 `;
 const Container = styled.div`
