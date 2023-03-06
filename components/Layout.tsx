@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  transition: background 5s ease-in-out padding 0.5s ease-in-out;
+  transition: background 5s ease-in-out, padding 0.5s ease-in-out;
   :hover {
     background-position: center 50%;
   }
