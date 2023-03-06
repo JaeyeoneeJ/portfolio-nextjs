@@ -7,14 +7,17 @@ import { AiFillMail } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
 
-const BG = styled.div`
+const BG = styled(motion.div)`
   position: fixed;
   overflow: hidden;
   right: 0;
   top: 0;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
 `;
 
 const Wrapper = styled(motion.div)`
@@ -143,9 +146,9 @@ const HamburgerMenu = ({
     };
   });
   return (
-    <BG>
-      <AnimatePresence>
-        {!isExit && (
+    <AnimatePresence>
+      {!isExit && (
+        <BG animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
           <Wrapper
             ref={menuRef}
             variants={wrapperVariants}
@@ -203,9 +206,9 @@ const HamburgerMenu = ({
               </LinkItem>
             </FlexBox>
           </Wrapper>
-        )}
-      </AnimatePresence>
-    </BG>
+        </BG>
+      )}
+    </AnimatePresence>
   );
 };
 
