@@ -178,7 +178,7 @@ const Header = () => {
               <MenuIcon onClick={menuToggle}>
                 <FiMenu size={30} color="white" />
               </MenuIcon>
-              {menuState && <HamburgerMenu />}
+              {menuState && <HamburgerMenu setMenuState={setMenuState} />}
             </>
           )}
         </FlexBox>
