@@ -25,16 +25,24 @@ const Card = styled.div`
   &:last-child {
     border-bottom: none;
   }
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const FlexCol = styled.div`
+const LeftBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  @media screen and (max-width: 500px) {
+    flex-direction: row;
+  }
 `;
 
-const FlexRow = styled(FlexCol)`
+const FlexRow = styled.div`
+  display: flex;
   flex-direction: row;
+  gap: 6px;
   justify-content: space-between;
 `;
 
@@ -46,6 +54,9 @@ const Duration = styled.p`
   padding: 2px 6px;
   color: tomato;
   height: 20px;
+  @media screen and (max-width: 500px) {
+    width: auto;
+  }
 `;
 
 const Explain = styled.div`
@@ -109,7 +120,9 @@ const TimelineContents = ({ isCareer, isAwards, isEducation }: IProps) => {
       {isCareer &&
         careers.map((career, index) => (
           <Card key={index}>
-            <Duration>{career.duration}</Duration>
+            <LeftBox>
+              <Duration>{career.duration}</Duration>
+            </LeftBox>
             <Explain>
               <Experience>{career.experience}</Experience>
               <UnderLine>
@@ -129,7 +142,7 @@ const TimelineContents = ({ isCareer, isAwards, isEducation }: IProps) => {
       {isAwards &&
         awards.map((award, index) => (
           <Card key={index}>
-            <FlexCol>
+            <LeftBox>
               <Duration>{award.duration}</Duration>
               <FlexRow>
                 <Category>
@@ -145,7 +158,7 @@ const TimelineContents = ({ isCareer, isAwards, isEducation }: IProps) => {
                   </ImgIcon>
                 )}
               </FlexRow>
-            </FlexCol>
+            </LeftBox>
             <Explain>
               <Experience>{award.experience}</Experience>
               <UnderLine>
@@ -162,7 +175,9 @@ const TimelineContents = ({ isCareer, isAwards, isEducation }: IProps) => {
       {isEducation &&
         educations.map((education, index) => (
           <Card key={index}>
-            <Duration>{education.duration}</Duration>
+            <LeftBox>
+              <Duration>{education.duration}</Duration>
+            </LeftBox>
             <Explain>
               <Experience>{education.experience}</Experience>
               <UnderLine>
