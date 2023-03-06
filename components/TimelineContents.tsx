@@ -17,7 +17,8 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
-  display: flex;
+  display: grid;
+  grid-template-columns: 150px 1fr;
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid ${(props) => props.theme.gray.lighter};
@@ -61,6 +62,7 @@ const Experience = styled.p`
 
 const UnderLine = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
 `;
 
@@ -68,9 +70,8 @@ const BorderBoxContent = styled.p<{ color: string }>`
   background-color: ${(props) => props.color};
   width: auto;
   border-radius: 5px;
-  padding: 2px 6px;
+  padding: 2px 6px 0px 6px;
   color: gray;
-  height: 20px;
 `;
 
 const Category = styled.div`
