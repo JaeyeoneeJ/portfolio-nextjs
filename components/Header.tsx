@@ -83,13 +83,6 @@ const TitleArea = styled.div`
       letter-spacing: 6px;
     }
   }
-  @media screen and (max-width: 500px) {
-    font-size: 12px;
-    span:last-child {
-      font-size: 18px;
-      letter-spacing: 5px;
-    }
-  }
 `;
 
 const LinkItem = styled.a<{ hoverColor: string }>`
