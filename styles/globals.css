@@ -59,3 +59,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+html, body {
+  touch-action: none;
+  overflow: hidden;
+}
