@@ -1,3 +1,4 @@
+import useWindowWidth from "@/components/hooks/useWindowWidth";
 import Seo from "@/components/Seo";
 import TypingText from "@/components/TypingText";
 import styled from "styled-components";
@@ -13,6 +14,8 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 export default function Home() {
+  const width = useWindowWidth();
+
   const textArr = [
     "안녕하세요?",
     "프론트엔드 개발자",
@@ -25,7 +28,7 @@ export default function Home() {
     <>
       <Seo />
       <Wrapper>
-        <TypingText text={textArr} fontSize="40px" />
+        <TypingText text={textArr} fontSize={width >= 680 ? "40px" : "24px"} />
       </Wrapper>
     </>
   );
