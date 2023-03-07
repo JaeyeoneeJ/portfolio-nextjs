@@ -100,21 +100,35 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media screen and (max-width: 680px) {
+    top: -50px;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
+  @media screen and (max-width: 680px) {
+  }
 `;
 
-const HeaderCenter = styled(Header)`
+const HeaderCenter = styled.div`
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 `;
 
 const Title = styled.h2`
   font-size: 40px;
   font-weight: 400;
+  transition: font 0.3s ease-in-out;
+  @media screen and (max-width: 680px) {
+    font-size: 24px;
+  }
 `;
 
 const Duration = styled.p`
@@ -122,6 +136,9 @@ const Duration = styled.p`
   background-color: rgba(252, 242, 155, 1);
   padding: 2px 6px;
   color: gray;
+  @media screen and (max-width: 680px) {
+    font-size: 12px;
+  }
 `;
 
 const SubTitle = styled.h3`
@@ -130,6 +147,7 @@ const SubTitle = styled.h3`
   position: relative;
   margin-top: 20px;
   margin-bottom: 10px;
+  transition: font 0.3s ease-in-out;
   &:after {
     content: "";
     position: absolute;
@@ -138,6 +156,9 @@ const SubTitle = styled.h3`
     transform: translateX(50%);
     width: 50px;
     border-bottom: 3px solid ${(props) => props.theme.white.darker};
+  }
+  @media screen and (max-width: 680px) {
+    font-size: 20px;
   }
 `;
 
@@ -164,10 +185,14 @@ const ExperienceWrapper = styled.div`
 const ExperienceBox = styled.div`
   position: relative;
   margin-left: 14px;
+  transition: font 0.3s ease-in-out;
   &:before {
     content: "-";
     position: absolute;
     left: -14px;
+  }
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
   }
 `;
 
@@ -176,16 +201,23 @@ const SkillBox = styled(Duration)<{ textColor: string }>`
   color: black;
 `;
 
-const Text = styled.p<{ fontSize?: string }>`
+const Text = styled.p`
   width: 100%;
-  font-weight: ${(props) => (props.fontSize ? 400 : 300)};
-  font-size: ${(props) => (props.fontSize ? props.fontSize : "18px")};
+  font-weight: 300;
+  font-size: 18px;
   line-height: 1.3;
+  transition: font 0.3s ease-in-out;
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+  }
 `;
 
-const TeamArea = styled(Header)`
+const TeamArea = styled.div`
+  display: flex;
+  align-items: flex-end;
   justify-content: left;
   gap: 5px;
+  flex-wrap: wrap;
 `;
 const LinkArea = styled(TeamArea)``;
 
