@@ -27,6 +27,9 @@ const MenuItem = styled.div<{ active: boolean }>`
     color: ${(props) => props.theme.gray.darker};
     border-bottom: 3px solid ${(props) => props.theme.gray.darker};
   }
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+  }
 `;
 
 export default function Timeline() {

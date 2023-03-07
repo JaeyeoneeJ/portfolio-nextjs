@@ -81,7 +81,7 @@ const BorderBoxContent = styled.p<{ color: string }>`
   background-color: ${(props) => props.color};
   width: auto;
   border-radius: 5px;
-  padding: 2px 6px 0px 6px;
+  padding: 2px 6px;
   color: gray;
 `;
 
