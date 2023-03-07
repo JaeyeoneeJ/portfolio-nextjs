@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
 import { AiFillMail } from "react-icons/ai";
@@ -28,9 +28,16 @@ const Wrapper = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.white.lighter};
 `;
 
-const FlexBox = styled.div<{ gap: string }>`
+const FlexBoxLeft = styled.div`
   display: flex;
-  gap: ${(props) => props.gap};
+  gap: 80px;
+  @media screen and (max-width: 880px) {
+    gap: 40px;
+  }
+`;
+const FlexBoxRight = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 const MenuArea = styled.div`
@@ -118,75 +125,90 @@ const MenuIcon = styled.button`
 const Header = () => {
   const router = useRouter();
   const emailAddress = "5ikve@naver.com";
+  const [mounted, setMounted] = useState<boolean>(false);
 
   const [menuState, setMenuState] = useState(false);
   const menuToggle = () => {
     setMenuState((prev) => !prev);
   };
+  const width = useWindowWidth();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <Position>
-      <Wrapper>
-        <FlexBox gap={useWindowWidth() >= 880 ? "80px" : "40px"}>
-          <Link href="/">
-            <TitleArea>
-              <span>jaeyeonee&apos;s</span>
-              <span>PORTFOLIO</span>
-            </TitleArea>
-          </Link>
-          <MenuArea>
-            <MenuItem>
-              <Link href="/">
-                Home
-                {router.asPath === "/" && <Circle layoutId="circle" />}
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/project">
-                Project
-                {router.asPath === "/project" && <Circle layoutId="circle" />}
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/timeline">
-                Timeline
-                {router.asPath === "/timeline" && <Circle layoutId="circle" />}
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/about_me">
-                About me
-                {router.asPath === "/about_me" && <Circle layoutId="circle" />}
-              </Link>
-            </MenuItem>
-          </MenuArea>
-        </FlexBox>
-        <FlexBox gap="10px">
-          {useWindowWidth() > 680 ? (
-            <>
-              <CopyToClipboard
-                text={emailAddress}
-                onCopy={() => {
-                  alert(`메일 주소 ${emailAddress}이 복사되었습니다.`);
-                }}
-              >
-                <LinkItem hoverColor="#0bb9f8">
-                  <AiFillMail size={30} color="white" />
+      {mounted && (
+        <Wrapper>
+          <FlexBoxLeft>
+            <Link href="/">
+              <TitleArea>
+                <span>jaeyeonee&apos;s</span>
+                <span>PORTFOLIO</span>
+              </TitleArea>
+            </Link>
+            <MenuArea>
+              <MenuItem>
+                <Link href="/">
+                  Home
+                  {router.asPath === "/" && <Circle layoutId="circle" />}
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/project">
+                  Project
+                  {router.asPath === "/project" && <Circle layoutId="circle" />}
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/timeline">
+                  Timeline
+                  {router.asPath === "/timeline" && (
+                    <Circle layoutId="circle" />
+                  )}
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/about_me">
+                  About me
+                  {router.asPath === "/about_me" && (
+                    <Circle layoutId="circle" />
+                  )}
+                </Link>
+              </MenuItem>
+            </MenuArea>
+          </FlexBoxLeft>
+          <FlexBoxRight>
+            {width > 680 ? (
+              <>
+                <CopyToClipboard
+                  text={emailAddress}
+                  onCopy={() => {
+                    alert(`메일 주소 ${emailAddress}이 복사되었습니다.`);
+                  }}
+                >
+                  <LinkItem hoverColor="#0bb9f8">
+                    <AiFillMail size={30} color="white" />
+                  </LinkItem>
+                </CopyToClipboard>
+                <LinkItem
+                  hoverColor="black"
+                  href="https://github.com/jaeyeoneej"
+                >
+                  <FaGithub size={30} color="white" />
                 </LinkItem>
-              </CopyToClipboard>
-              <LinkItem hoverColor="black" href="https://github.com/jaeyeoneej">
-                <FaGithub size={30} color="white" />
-              </LinkItem>
-            </>
-          ) : (
-            <>
-              <MenuIcon onClick={menuToggle}>
-                <FiMenu size={30} color="white" />
-              </MenuIcon>
-              {menuState && <HamburgerMenu setMenuState={setMenuState} />}
-            </>
-          )}
-        </FlexBox>
-      </Wrapper>
+              </>
+            ) : (
+              <>
+                <MenuIcon onClick={menuToggle}>
+                  <FiMenu size={30} color="white" />
+                </MenuIcon>
+                {menuState && <HamburgerMenu setMenuState={setMenuState} />}
+              </>
+            )}
+          </FlexBoxRight>
+        </Wrapper>
+      )}
     </Position>
   );
 };
