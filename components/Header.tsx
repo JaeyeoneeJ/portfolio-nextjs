@@ -50,6 +50,7 @@ const MenuArea = styled.div`
 `;
 const MenuItem = styled.button`
   border: none;
+  color: black;
   background-color: transparent;
   font-size: 20px;
   font-weight: 300;
