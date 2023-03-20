@@ -12,6 +12,8 @@
 
 ## 주요 기능
 
+- Next.js를 사용하여 SSR 웹 개발과 SEO 중점으로 변경
+- CSS가 Head에 주입되어 SSR될 때 작동하도록 _document.tsx 및 next.config.js 셋팅
 - 라이브러리 없이 React Hook을 활용하여 타이핑 모션(타이핑 및 삭제)으로 메인 페이지를 구현하였습니다.
 - 외부 라이브러리 없이 리액트에서 이미지를 점진적으로 로드하는 기능을 구현하였습니다.
 - framer-motion을 사용하여 animation을 구현하였습니다.
